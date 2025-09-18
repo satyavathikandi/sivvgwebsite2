@@ -1,0 +1,13 @@
+/* App.css */
+/* Only a tiny bit — keep Tailwind as the primary source of truth. */
+
+/* If you used "max-w-xm" or other custom classes in your original code */
+.max-w-xm {
+  max-width: 20rem;
+}
+
+/* Minor cleanup for image-rendering on mobile */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
