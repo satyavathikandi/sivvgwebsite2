@@ -21,8 +21,8 @@ const NextSection = () => {
   }, []);
 
   return (
-    <motion.section className="py-12 px-4 md:px-20 text-center">
-      <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-800 mb-26 ">
+    <motion.section className="py-2 px-4 md:px-20 text-center">
+      <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-800  mb-16 mt-6 md:mt-16 lg:mt-20 ">
         <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
           Explore Our Features
         </span>

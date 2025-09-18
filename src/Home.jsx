@@ -95,7 +95,7 @@ function Home() {
 
           {/* welcome Section2 */}
 
-      <div className="space-y-20 max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-18">
+     <div className="space-y-20 max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-18">
   <motion.section
     className="flex flex-col md:flex-row items-center gap-8 md:gap-10"
     initial={{ opacity: 0, scale: 0.8, y: 60 }}
@@ -104,23 +104,24 @@ function Home() {
     viewport={{ once: true, amount: 0.4 }}
   >
     {/* Text Content */}
-    <div className="w-full md:w-1/2 flex flex-col justify-center mb-6 mt-30">
-      <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-800 mb-18">
-        <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
-          Welcome To SIVVG Infotech
-        </span>
-      </h2>
+   <div className="w-full md:w-1/2 flex flex-col justify-center mb-6 mt-6 md:mt-12 lg:mt-20">
+  <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-800 mb-4 md:mb-8">
+    <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
+      Welcome To SIVVG Infotech
+    </span>
+  </h2>
 
-      <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700">
-        At SIVVG InfoTech, we empower traders with strategies built on deep market research and experience.
-        Our recommendations go beyond guesswork, offering clarity in a noisy market.
-        Each tip is shaped by time-tested methods and real analytical depth.
-        We focus on delivering practical, result-driven guidance you can rely on.
-      </p>
-    </div>
+  <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700">
+    At SIVVG InfoTech, we empower traders with strategies built on deep market research and experience.
+    Our recommendations go beyond guesswork, offering clarity in a noisy market.
+    Each tip is shaped by time-tested methods and real analytical depth.
+    We focus on delivering practical, result-driven guidance you can rely on.
+  </p>
+</div>
+
 
     {/* Image */}
-    <div className="w-full md:w-1/2 mt-30 md:mt-30 flex justify-center">
+    <div className="w-full md:w-1/2  mb-6 mt-6 md:mt-12 lg:mt-20flex justify-center">
       <img
         src={section2}
         alt="section-2"
@@ -134,19 +135,19 @@ function Home() {
    {/* whychoose Section3 */}
    
       <motion.section
-  className="bg-white px-4 py-12"
+  className="bg-white px-4 py-2"
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 0.8, delay: 0.2 }}
   viewport={{ once: true }}
 >
- <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mb-6 mt-30">
+ <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mb-6 mt-6 md:mt-16 lg:mt-20 ">
         <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
           Why Choose SIVVG
         </span>
       </h2>
 
-  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 bg-[#4b4d9c] text-white rounded-xl p-6 md:p-10 shadow-lg mt-30">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 bg-[#4b4d9c] text-white rounded-xl p-6 md:p-10 shadow-lg mb-2 mt-2 md:mt-12 lg:mt-20">
     {/* Left Icons Section */}
     <div className="grid grid-cols-2 sm:grid-cols-2 gap-6 md:gap-10">
       {/* Icon 1 */}
@@ -209,7 +210,7 @@ function Home() {
            <BeginjourneySection/>
 
          {/* phones Section5 */}
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-4 bg-[#6768c9] rounded-t-3xl text-white gap-x-2">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-4 bg-[#6768c9] rounded-t-3xl text-white gap-x-2  ">
 
   {/* Left Section */}
 <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 space-y-4 px-4 md:ml-10">
