@@ -41,17 +41,17 @@ const About = () => {
       {/* Second Section */}
       <section className="w-full h-auto bg-white pt-0 pb-12 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mb-6 mt-10">
+          <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mt-20 mb-6 mt-6 md:mt-16 lg:mt-20 ">
             <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
               Who we are
             </span>
           </h2>
-          <p className="text-gray-800 text-base md:text-xl leading-relaxed max-w-7xl mx-auto">
+          <p className="text-gray-800 text-base md:text-xl leading-relaxed max-w-7xl mx-auto mt-10">
             At SIVVG Trading, we believe in making smart trading simple. We're a
             passionate team driven by the power of markets and data, working to
             deliver reliable, real-time trading solutions. Our goal is clear: to
             bridge the gap between opportunity and success. With a focus on
-            transparency, integrity, and innovation, we offer trading services
+            transparency, integrity and innovation, we offer trading services
             that are easy to access, secure, and built for results. Whether
             you're just starting out or scaling up, SIVVG Trading is here to
             support your journey - step by step, trade by trade.

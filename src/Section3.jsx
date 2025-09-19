@@ -70,7 +70,7 @@ const Section3 = () => {
     <>
       <section className="w-full bg-white py-12 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mb-16 mt-10">
+          <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mb-16 mt-5">
             <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
               Our Values
             </span>

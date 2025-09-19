@@ -10,7 +10,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 const vedio = new URL('../assets/vedio3.mp4', import.meta.url).href
-const poster = new URL('../assets/banner1.png', import.meta.url).href
+//const poster = new URL('../assets/banner1.png', import.meta.url).href
 const poster2 = new URL('../assets/poster2.png', import.meta.url).href
 
 const banner2 = new URL('../assets/banner2.png', import.meta.url).href
@@ -79,35 +79,46 @@ export default function Banner() {
         {/* Slide 1 - Video for md+, poster image for small screens */}
         <SwiperSlide>
           <div className={slideContainerClasses}>
-            {/* Desktop / large screens: show video */}
+            {/* Desktop video */}
             <div className="hidden md:block absolute inset-0">
               <video
                 className="w-full h-full object-cover"
-                autoPlay
+
                 loop
                 muted
                 playsInline
-                poster={poster}
-                // controls={false} // don't show controls on desktop hero
+                autoPlay
               >
                 <source src={vedio} type="video/mp4" />
               </video>
             </div>
 
-            {/* Mobile / tablets: show poster image (fallback for autoplay restrictions) */}
+            {/* Mobile video */}
             <div className="block md:hidden absolute inset-0">
-              <img src={poster} alt="Hero poster" className="w-full h-full object-cover" />
-            </div>
+              <video
+                className="w-full h-full object-cover"
 
+                loop
+                muted
+                playsInline
+                autoPlay
+              >
+                <source src={vedio} type="video/mp4" />
+              </video>
+            </div>
             <motion.div
               className={captionClasses}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.45, ease: 'easeOut', delay: 0.25 }}
+              transition={{ duration: 0.45, ease: "easeOut", delay: 0.25 }}
             >
               Clarity in every move, confident in every trade
             </motion.div>
           </div>
+
+
+
+
         </SwiperSlide>
 
         {/* Slide 2 */}
@@ -137,7 +148,7 @@ export default function Banner() {
             >
               Clarity in every move, confident in every trade
             </motion.div>
-              <div className="block md:hidden absolute inset-0">
+            <div className="block md:hidden absolute inset-0">
               <img src={poster2} alt="Hero poster" className="w-full h-full object-cover" />
             </div>
 

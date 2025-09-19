@@ -8,17 +8,17 @@ export default function MarketSection() {
   const content = {
     Equity: {
       title: 'Equity Intraday Recommendation',
-      description: `At SIVVG, we make stock trading smarter, faster, and more accessible. Whether you're new to the market or a seasoned trader, our platform adapts to your style. Buy, sell, and manage shares with real-time data, intuitive tools, and secure execution. Track trends, analyze companies, and place trades with confidence — all in one seamless experience. We offer access to top stock exchanges, smart and  transparent, commission-friendly structure. No guesswork. No clutter. Just pure trading potential. SIVVG empowers your equity trading journey from day one.
+      description: `At SIVVG, we make stock trading smarter, faster and more accessible. Whether you're new to the market or a seasoned trader, our platform adapts to your style. Buy, sell and manage shares with real-time data, intuitive tools and secure execution. Track trends, analyze companies and place trades with confidence — all in one seamless experience. We offer access to top stock exchanges, smart and  transparent, commission-friendly structure. No guesswork. No clutter. Just pure trading potential. SIVVG empowers your equity trading journey from day one.
 Join SIVVG. Trade with purpose , Grow with precision.`,
     },
     Futures: {
       title: 'Futures Intraday Recommendation',
-      description: `Futures trading lets you buy or sell contracts to trade assets at a predetermined price on a future date. This powerful tool allows traders to speculate on price movements or hedge against market risks. At SIVVG, we provide a fast, reliable platform to help you seize opportunities in futures. Our advanced tools include real-time data, technical indicators, and easy-to-use order types to support smart, timely decisions. With flexible leverage options, you can amplify your exposure while managing risk carefully.  Whether you’re a beginner or an expert, SIVVG offers educational resources and expert support to guide your futures trading journey.
-Trade with confidence, speed, and precision.`,
+      description: `Futures trading lets you buy or sell contracts to trade assets at a predetermined price on a future date. This powerful tool allows traders to speculate on price movements or hedge against market risks. At SIVVG, we provide a fast, reliable platform to help you seize opportunities in futures. Our advanced tools include real-time data, technical indicators and easy-to-use order types to support smart, timely decisions. With flexible leverage options, you can amplify your exposure while managing risk carefully.  Whether you’re a beginner or an expert, SIVVG offers educational resources and expert support to guide your futures trading journey.
+Trade with confidence, speed and precision.`,
     },
     Options: {
       title: 'Options Intraday Recommendation',
-      description: `Options trading gives you the right, but not the obligation, to buy or sell an asset at a specific price within a set time. This powerful tool offers traders flexibility to manage risk, speculate, or enhance portfolio strategies. Whether you want to buy calls or puts or hedge your investments, our tools make it easy to design and execute your plan. Leverage market movements while controlling your risk with clear margin requirements and risk management features. Our educational resources help beginners understand options basics.
+      description: `Options trading gives you the right, but not the obligation, to buy or sell an asset at a specific price within a set time. This powerful tool offers traders flexibility to manage risk, speculate or enhance portfolio strategies. Whether you want to buy calls or puts or hedge your investments, our tools make it easy to design and execute your plan. Leverage market movements while controlling your risk with clear margin requirements and risk management features. Our educational resources help beginners understand options basics.
 Trade options confidently with SIVVG — where technology meets smart decision-making.`,
     },
   };

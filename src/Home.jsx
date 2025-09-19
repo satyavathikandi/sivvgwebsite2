@@ -97,21 +97,21 @@ function Home() {
 
      <div className="space-y-20 max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-18">
   <motion.section
-    className="flex flex-col md:flex-row items-center gap-8 md:gap-10"
+    className="flex flex-col md:flex-row items-center gap-20 md:gap-20"
     initial={{ opacity: 0, scale: 0.8, y: 60 }}
     whileInView={{ opacity: 1, scale: 1, y: 0 }}
     transition={{ duration: 0.8, ease: "easeIn" }}
     viewport={{ once: true, amount: 0.4 }}
   >
     {/* Text Content */}
-   <div className="w-full md:w-1/2 flex flex-col justify-center mb-6 mt-6 md:mt-12 lg:mt-20">
+   <div className="w-full md:w-1/2 flex flex-col justify-center text-center mb-6 mt-6 md:mt-12 lg:mt-20">
   <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-800 mb-4 md:mb-8">
     <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
       Welcome To SIVVG Infotech
     </span>
   </h2>
 
-  <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700">
+  <p className="text-base sm:text-lg md:text-xl leading-relaxed   text-gray-700">
     At SIVVG InfoTech, we empower traders with strategies built on deep market research and experience.
     Our recommendations go beyond guesswork, offering clarity in a noisy market.
     Each tip is shaped by time-tested methods and real analytical depth.
@@ -192,13 +192,13 @@ function Home() {
         viewport={{ once: true, amount: 0.3 }}
       >
         In our company, we believe that successful trading doesn’t come from
-        luck—it comes from logic, discipline, and genuine market analysis.
+        luck—it comes from logic, discipline and genuine market analysis.
         That’s why our tips stand apart from the rest. We don’t follow the
         crowd or rely on guesswork. Instead, every recommendation we provide
-        is backed by research, tested strategies, and a clear purpose.
+        is backed by research, tested strategies and a clear purpose.
         <br /><br />
         Our users choose us because they trust the transparency we offer,
-        the consistent guidance we provide, and the discipline and solid
+        the consistent guidance we provide and the discipline and solid
         returns that are the foundation of what we deliver—because your
         growth is our priority.
       </motion.p>
@@ -210,7 +210,7 @@ function Home() {
            <BeginjourneySection/>
 
          {/* phones Section5 */}
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-4 bg-[#6768c9] rounded-t-3xl text-white gap-x-2  ">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 py-4 bg-[#6768c9] rounded-t-3xl text-white gap-x-2 ">
 
   {/* Left Section */}
 <div className="flex flex-col items-center md:items-start text-center md:text-left w-full md:w-1/2 space-y-4 px-4 md:ml-10">

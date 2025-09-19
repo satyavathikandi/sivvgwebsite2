@@ -103,7 +103,7 @@ const Footer = () => {
                 </li>
                 <li className="flex items-center gap-2">
                   <FaPhoneAlt className="shrink-0" />
-                  <span>09542992314</span>
+                  <span>+91 9542992314</span>
                 </li>
                 <li>
                   SEBI Registration Number - INR0017042821

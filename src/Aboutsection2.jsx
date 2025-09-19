@@ -14,7 +14,7 @@ const AboutSection2 = () => {
           <p className="text-gray-800 text-base leading-relaxed mb-4 text-center md:text-xl max-w-7xl mx-auto">
             At SIVVG Trading, we believe in making smart trading simple. We're a passionate team driven by the power of markets and data,
             working to deliver reliable, real-time trading solutions. Our goal is clear: to bridge the gap between opportunity and success.
-            With a focus on transparency, integrity, and innovation, we offer trading services that are easy to access, secure and built for results.
+            With a focus on transparency, integrity and innovation, we offer trading services that are easy to access, secure and built for results.
             Whether you're just starting out or scaling up, SIVVG Trading is here to support your journey - step by step, trade by trade.
           </p>
           {/* <p className="text-gray-800 text-base leading-relaxed text-center md:text-left">
