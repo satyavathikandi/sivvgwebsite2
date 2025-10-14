@@ -17,10 +17,10 @@ const investmentData = [
   {
     title: "Returns",
     icon: <LineChart className="w-10 h-10" />,
-    description: "Diversify your investments through expert-managed funds.",
+    description: "Diversify your investments through expert guidance.",
   },
   {
-    title: "Safety",
+    title: "Assurance",
     icon: <PiggyBank className="w-10 h-10" />,
     description: "Enjoy stable and secure returns with fixed interest rates.",
   },
@@ -57,13 +57,9 @@ const flipCards = [
 ];
 
 const Investment = () => {
-  // Track flips only for mobile/touch devices
-  const [flipped, setFlipped] = useState(
-    new Array(flipCards.length).fill(false)
-  );
+  const [flipped, setFlipped] = useState(new Array(flipCards.length).fill(false));
 
   const toggleFlip = (idx) => {
-    // Only toggle on mobile view
     if (window.innerWidth < 768) {
       setFlipped((prev) => {
         const copy = [...prev];
@@ -77,12 +73,12 @@ const Investment = () => {
     <div className="max-w-7xl mx-auto px-6 py-20 space-y-10">
       {/* Heading */}
       <div className="text-center">
-        <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mb-16">
-        <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
-        Your Investment Strategy
-        </span>
-      </h2>
-        <p className="text-xl text-gray-600 ">
+        <h2 className="text-2xl sm:text-4xl md:text-4xl font-bold text-blue-800 mb-4">
+          <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
+            Your Investment Strategy
+          </span>
+        </h2>
+        <p className="text-xl text-gray-600">
           Choose the best options tailored to your financial goals.
         </p>
       </div>
@@ -108,9 +104,7 @@ const Investment = () => {
         {flipCards.map((card, idx) => (
           <div
             key={idx}
-            className={`flip-card h-60 cursor-pointer ${
-              flipped[idx] ? "flipped" : ""
-            }`}
+            className={`flip-card h-60 cursor-pointer ${flipped[idx] ? "flipped" : ""}`}
             onClick={() => toggleFlip(idx)}
           >
             <div className="flip-inner relative w-full h-full">
@@ -132,9 +126,7 @@ const Investment = () => {
               <div
                 className={`flip-back absolute inset-0 flex items-center justify-center rounded-2xl bg-gradient-to-br ${card.backColor} px-4 text-center backface-hidden`}
               >
-                <p className="text-xl font-medium text-white">
-                  {card.description}
-                </p>
+                <p className="text-xl font-medium text-white">{card.description}</p>
               </div>
             </div>
           </div>
@@ -154,7 +146,6 @@ const Investment = () => {
           transition: transform 0.6s;
           transform-style: preserve-3d;
         }
-        /* Hover effect only applies on desktop (>= md) */
         @media (min-width: 768px) {
           .flip-card:hover .flip-inner {
             transform: rotateY(180deg);

@@ -8,31 +8,55 @@ export default function MarketSection() {
   const content = {
     Equity: {
       title: 'Equity Intraday Recommendation',
-      description: `At SIVVG, we make stock trading smarter, faster and more accessible. Whether you're new to the market or a seasoned trader, our platform adapts to your style. Buy, sell and manage shares with real-time data, intuitive tools and secure execution. Track trends, analyze companies and place trades with confidence — all in one seamless experience. We offer access to top stock exchanges, smart and  transparent, commission-friendly structure. No guesswork. No clutter. Just pure trading potential. SIVVG empowers your equity trading journey from day one.
-Join SIVVG. Trade with purpose , Grow with precision.`,
+      description: `At SIVVG, we offer expert-accurate intraday trading tips to help you navigate 
+      the stock market with confidence and clarity. In our equity segment we spot real-time 
+      opportunities by closely watching market trends and trading volumes. Each tip includes 
+      clear entry, target and helping you trade with more confidence and lower risk.`,
     },
+    //Derivatives: {
+      //title: 'Derivatives Intraday Recommendation',
+      //description: `For derivative traders, SIVVG delivers actionable intraday calls in futures and options, 
+     // tailored to capitalize on market volatility and momentum. Our team closely monitors 
+      //market trends, open interest and price action to generate timely F&O recommendations.
+      // Whether you're experienced or beginner in trading, our derivative tips are structured
+      //for both opportunity and risk management.`,
+   // },
     Futures: {
       title: 'Futures Intraday Recommendation',
-      description: `Futures trading lets you buy or sell contracts to trade assets at a predetermined price on a future date. This powerful tool allows traders to speculate on price movements or hedge against market risks. At SIVVG, we provide a fast, reliable platform to help you seize opportunities in futures. Our advanced tools include real-time data, technical indicators and easy-to-use order types to support smart, timely decisions. With flexible leverage options, you can amplify your exposure while managing risk carefully.  Whether you’re a beginner or an expert, SIVVG offers educational resources and expert support to guide your futures trading journey.
-Trade with confidence, speed and precision.`,
+      description: `At SIVVG, we provide clear and reliable Futures trading tips to help you 
+      make informed decisions in a fast-moving market.
+We analyze price action, market direction and trading activity to identify potential opportunities.
+"Each tip comes with a clear target, giving you insight into the potential movement of the market.
+With SIVVG, Futures trading becomes reliable, and focused on helping you achieve results.`,
     },
-    Options: {
+     Options: {
       title: 'Options Intraday Recommendation',
-      description: `Options trading gives you the right, but not the obligation, to buy or sell an asset at a specific price within a set time. This powerful tool offers traders flexibility to manage risk, speculate or enhance portfolio strategies. Whether you want to buy calls or puts or hedge your investments, our tools make it easy to design and execute your plan. Leverage market movements while controlling your risk with clear margin requirements and risk management features. Our educational resources help beginners understand options basics.
-Trade options confidently with SIVVG — where technology meets smart decision-making.`,
+      description: `At SIVVG, we provide accurate Options trading tips designed to deliver the best results.
+Our experts monitor option prices and key data to identify potential opportunities.
+Each tip provides a target, helping you plan your trades with confidence.
+Trade smart and stay empowered with SIVVG’s practical Options strategies.`,
     },
+//     Options: {
+//       title: 'Options Intraday Recommendation',
+//       description:`Options trading gives you the right but not the obligation to buy or sell an asset at a specific
+//        price within a set time.This effective solution offers traders flexibility to manage risk, speculate or enhance portfolio 
+//        strategies.Whether you want to buy calls or puts or hedge your investments our advanced features make it easy to 
+//  and execute your plan.Leverage market movements while controlling your risk with clear margin requirements 
+//  and risk management functions.Our professional guidance helps beginners understand options basics.Trade options 
+//  confidently with SIVVG — where technology meets smart decision-making.`,
+//     },
   };
 
   return (
     <section className="p-4 md:p-12 bg-white text-center">
-      <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mb-16 mt-10">
+      <h2 className="text-2xl text-center sm:text-4xl md:text-4xl font-bold text-blue-800 mb-16 mt-10">
         <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
           Explore Our Market Recommendation
         </span>
       </h2>
 
       {/* Top Icons Row */}
-      <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-22 border p-4 rounded-xl shadow-md max-w-4xl mx-auto border-purple-500">
+      <div className="flex flex-col md:flex-row items-center text-justify justify-center gap-6 md:gap-22 border p-4 rounded-xl shadow-md max-w-3xl mx-auto border-purple-500">
 
 
         {/* Equity */}
@@ -64,7 +88,7 @@ Trade options confidently with SIVVG — where technology meets smart decision-m
         </div>
 
         {/* Options */}
-        <div
+         <div
           onClick={() => setSelected('Options')}
           className={`flex items-center cursor-pointer space-x-3 md:space-x-4 transform transition duration-300 ease-in-out hover:scale-105 hover:text-purple-900 ${selected === 'Options' ? 'text-green-800' : 'text-purple-600'
             }`}
@@ -75,7 +99,7 @@ Trade options confidently with SIVVG — where technology meets smart decision-m
             className="w-10 h-10 md:w-12 md:h-12"
           />
           <p className="text-lg md:text-2xl font-semibold">Options</p>
-        </div>
+        </div> 
       </div>
 
       <AnimatePresence mode="wait">

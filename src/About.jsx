@@ -1,66 +1,179 @@
-import React from "react";
-import about from "./assets/about.png";
-import "./about.css";
-import Section3 from "./Section3";
+import {
+  TrendingUp,
+  Shield,
+  HeartHandshake,
+  ShieldCheck,
+} from "lucide-react";
 import { motion } from "framer-motion";
+import About from "./assets/about.png";
 
-const About = () => {
+export default function AboutSection() {
+  const fadeUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <>
-      {/* First Section */}
-      <section className="w-full px-6 sm:px-6 pt-24 lg:px-8 py-4 sm:py-30">
-        <div className="grid grid-cols-1 md:grid-cols-2 w-full max-w-[1600px] mx-auto">
+    <div className="bg-white text-gray-800 overflow-hidden">
+      {/* ==================== WHO WE ARE SECTION ==================== */}
+      <motion.section
+        className="max-w-7xl mx-auto px-6 md:px-12 py-40 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeUp}
+        viewport={{ once: true }}
+      >
+        {/* Text Block */}
+        <motion.div className="flex flex-col justify-center order-1" variants={fadeUp}>
+          {/* 1️⃣ Heading */}
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl text-[#26215f] font-bold mb-6 text-center md:text-left">
+            Empower Your Trading Journey
+          </h1>
 
-          {/* Text Section */}
+          {/* 2️⃣ Mobile Image (shows after heading, before paragraph) */}
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}   // start smaller & invisible
-            animate={{ scale: 1, opacity: 1 }}     // zoom to full size
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="bg-[#4B50A5] flex items-center justify-center p-8 h-auto"
-          >
-            <h2 className="text-white text-2xl md:text-3xl font-bold text-center">
-              Patience guides every move, trust turns plans into profits.
-            </h2>
-          </motion.div>
-
-          {/* Image Section */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }} // 👈 delay for stagger
+            className="block md:hidden mb-6 flex justify-center"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
             <img
-              src={about}
-              alt="About"
-              className="w-full h-[300px] md:h-[400px] object-cover block"
+              src={About}
+              alt="About SIVVG"
+              className="rounded-lg shadow-lg w-full max-w-md object-cover"
             />
           </motion.div>
-        </div>
-      </section>
 
-      {/* Second Section */}
-      <section className="w-full h-auto bg-white pt-0 pb-12 px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-2xl text-center sm:text-4xl md:text-5xl font-bold text-blue-800 mt-20 mb-6 mt-6 md:mt-16 lg:mt-20 ">
-            <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
-              Who we are
-            </span>
-          </h2>
-          <p className="text-gray-800 text-base md:text-xl leading-relaxed max-w-7xl mx-auto mt-10">
-            At SIVVG Trading, we believe in making smart trading simple. We're a
-            passionate team driven by the power of markets and data, working to
-            deliver reliable, real-time trading solutions. Our goal is clear: to
-            bridge the gap between opportunity and success. With a focus on
-            transparency, integrity and innovation, we offer trading services
-            that are easy to access, secure, and built for results. Whether
-            you're just starting out or scaling up, SIVVG Trading is here to
-            support your journey - step by step, trade by trade.
+          {/* 3️⃣ Paragraph */}
+          <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-700 text-center md:text-left">
+            At SIVVG, we empower traders with clear, reliable and data-driven intraday insights. Our journey began with a
+            simple vision — to turn every effort into a path to success. Challenges strengthened our commitment, and
+            today we stand as a trusted partner for traders at every level.
+          </p>
+        </motion.div>
+
+        {/* Desktop Image */}
+        <motion.div
+          className="hidden md:flex order-2 justify-end"
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <img
+            src={About}
+            alt="About SIVVG"
+            className="rounded-lg shadow-lg w-full max-w-lg lg:max-w-xl object-cover"
+          />
+        </motion.div>
+      </motion.section>
+
+      {/* ==================== OUR PILLARS SECTION ==================== */}
+      <motion.section
+        className="bg-purple-50 py-16 px-6"
+        initial="hidden"
+        whileInView="visible"
+        variants={fadeUp}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+          Our Objective 
+        </h2>
+        <p className="text-center text-xl sm:text-2xl mb-10 text-gray-700">
+          “Guided by Insight, Grounded in Integrity, Growing with Innovation.”
+        </p>
+
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-base sm:text-lg md:text-2xl leading-relaxed text-gray-700">
+          At SIVVG, we aim to make trading smarter, simpler and more rewarding for every trader. 
+          By combining innovation, strategy and real-time insights, we transform opportunities into lasting growth. 
+          Our approach is built on trust, discipline and sustainable development, ensuring every trading decision is informed and confident. 
+          Through continuous learning and intelligent guidance, we empower traders to achieve consistent progress and long-term success, making trading a journey of clarity, confidence and achievement.
           </p>
         </div>
-      </section>
-      <Section3 />
-    </>
-  );
-};
+      </motion.section>
 
-export default About;
+      {/* ==================== OUR VALUES SECTION ==================== */}
+      <section className="max-w-6xl mx-auto py-20 px-6">
+        <motion.h2
+          className="text-center text-3xl sm:text-4xl lg:text-5xl font-bold mb-16"
+          initial="hidden"
+          whileInView="visible"
+          transition={{ duration: 0.6 }}
+          variants={fadeUp}
+          viewport={{ once: true }}
+        >
+          Our Values
+        </motion.h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {[
+            {
+              icon: <TrendingUp className="text-purple-600 w-12 h-12" />,
+              title: "Sustainable Growth",
+              text: "Empowering long-term success through discipline, innovation and consistency.",
+            },
+            {
+              icon: <Shield className="text-purple-600 w-12 h-12" />,
+              title: "Safety",
+              text: "Smart risk awareness ensures stronger decisions and safer trading outcomes.",
+            },
+            {
+              icon: <HeartHandshake className="text-purple-600 w-12 h-12" />,
+              title: "Teamwork",
+              text: "Through united efforts, we spark innovation and success — achieving more together.",
+            },
+            {
+              icon: <ShieldCheck className="text-purple-600 w-12 h-12" />,
+              title: "Integrity",
+              text: "Honest and reliable insights you can trust — every signal, every session.",
+            },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              className="flex items-start space-x-4"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              {item.icon}
+              <div>
+                <h4 className="font-semibold text-2xl mb-3">{item.title}</h4>
+                <p className="text-lg text-gray-700">{item.text}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ==================== FUTURE / CTA SECTION ==================== */}
+      <motion.section
+        className="bg-[#6768c9] text-white py-16 text-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+          Join Us To Build Your Future
+        </h2>
+        <p className="max-w-2xl mx-auto text-base sm:text-lg mb-8">
+          Take the first step toward trading excellence with SIVVG today.
+        </p>
+
+        <a href="/Letstalk">
+          <motion.button
+            type="button"
+            className="w-[200px] bg-white text-[#4B50A5] py-3 rounded-md font-semibold text-lg hover:opacity-90 transition"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Let's Talk
+          </motion.button>
+        </a>
+      </motion.section>
+    </div>
+  );
+}
