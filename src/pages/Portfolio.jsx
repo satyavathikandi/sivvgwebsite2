@@ -27,26 +27,38 @@ const WeeklyPnLChart = () => {
   const [selectedMonth, setSelectedMonth] = useState("September");
   const chartRef = useRef();
 
-  // Robust Excel date parser
+  // ✅ Robust Excel date parser for any format
   const parseExcelDate = (date) => {
     if (!date) return null;
     if (typeof date === "number") {
+      // Excel numeric date
       return new Date(Math.round((date - 25569) * 86400 * 1000));
     }
     if (typeof date === "string") {
       const parts = date.trim().split(/[\/\-\.]/).map((v) => v.trim());
       if (parts.length !== 3) return null;
-      let [day, month, year] = parts;
-      day = day.padStart(2, "0");
-      month = month.padStart(2, "0");
-      if (year.length === 2) year = `20${year}`;
-      const parsed = new Date(`${year}-${month}-${day}`);
+      let [d1, d2, d3] = parts;
+      let day, month, year;
+
+      // Detect format like 09/01/25 (MM/DD/YY or DD/MM/YY)
+      if (parseInt(d1) > 12) {
+        // DD/MM/YY
+        day = d1;
+        month = d2;
+      } else {
+        // MM/DD/YY
+        day = d2;
+        month = d1;
+      }
+      year = d3.length === 2 ? `20${d3}` : d3;
+
+      const parsed = new Date(`${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`);
       return isNaN(parsed.getTime()) ? null : parsed;
     }
     return null;
   };
 
-  // Load Excel
+  // ✅ Load Excel
   useEffect(() => {
     fetch(dataFile)
       .then((res) => res.arrayBuffer())
@@ -81,7 +93,7 @@ const WeeklyPnLChart = () => {
 
   const monthMap = { September: 8 };
 
-  // Dynamic week splitting (5 trading days per week)
+  // ✅ Dynamic week splitting (group by 5 trading days)
   const getWeeks = (monthName) => {
     const monthIndex = monthMap[monthName];
     const monthData = data
@@ -99,7 +111,7 @@ const WeeklyPnLChart = () => {
     return weeks;
   };
 
-  // Monthly aggregation
+  // ✅ Monthly aggregation
   const getMonthlyAggregatedData = (monthName) => {
     const weeks = getWeeks(monthName);
     return Object.keys(weeks).map((wk) => {
@@ -111,7 +123,7 @@ const WeeklyPnLChart = () => {
     });
   };
 
-  // Displayed data
+  // ✅ Displayed data for chart
   const displayedData = useMemo(() => {
     if (!data.length || !selectedTrader) return [];
     const weeks = getWeeks(selectedMonth);
@@ -127,7 +139,6 @@ const WeeklyPnLChart = () => {
         }
         return filledWeek.map((d) => ({ ...d, weekLabel: selectedWeek }));
       }
-      // Show all weeks concatenated
       return Object.values(weeks).flatMap((wk) =>
         wk.map((day) => ({ ...day, weekLabel: "All Weeks" }))
       );
@@ -138,7 +149,7 @@ const WeeklyPnLChart = () => {
     return [];
   }, [data, mode, selectedWeek, selectedMonth, selectedTrader]);
 
-  // Total sums
+  // ✅ Total sums
   const totalSums = useMemo(() => {
     const sums = {};
     traders.forEach((t) => {
@@ -147,7 +158,7 @@ const WeeklyPnLChart = () => {
     return sums;
   }, [displayedData, traders]);
 
-  // PDF export
+  // ✅ PDF Export
   const handleDownloadPDF = async () => {
     if (!selectedTrader) return alert("Please select a trader first.");
     try {
@@ -211,27 +222,26 @@ const WeeklyPnLChart = () => {
     }
   };
 
-  // Get dynamic week buttons
   const weekButtons = useMemo(() => {
     const weeks = getWeeks(selectedMonth);
     return Object.keys(weeks);
   }, [data, selectedMonth]);
 
   return (
-    <div className="w-full min-h-screen bg-[#0f172a] text-gray-100 py-10 px-4">
-      <h2 className="text-3xl font-bold text-center mb-6">
+    <div className="w-full min-h-screen bg-[#0f172a] text-gray-100 py-8 px-3 sm:px-6 md:px-10">
+      <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
         📊 Portfolio P&L Percentage Dashboard
       </h2>
 
       {data.length > 0 ? (
         <>
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-6">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-6">
             <button
               onClick={() => {
                 setMode("weekly");
                 setSelectedWeek(null);
               }}
-              className={`py-2 px-3 rounded ${
+              className={`py-2 px-3 rounded text-sm sm:text-base ${
                 mode === "weekly" ? "bg-green-600" : "bg-gray-800"
               } text-white font-semibold`}
             >
@@ -242,7 +252,7 @@ const WeeklyPnLChart = () => {
                 setMode("monthly");
                 setSelectedWeek(null);
               }}
-              className={`py-2 px-3 rounded ${
+              className={`py-2 px-3 rounded text-sm sm:text-base ${
                 mode === "monthly" ? "bg-green-600" : "bg-gray-800"
               } text-white font-semibold`}
             >
@@ -252,7 +262,7 @@ const WeeklyPnLChart = () => {
             <select
               value={selectedTrader}
               onChange={(e) => setSelectedTrader(e.target.value)}
-              className="bg-gray-800 text-white rounded px-3 py-2"
+              className="bg-gray-800 text-white rounded px-3 py-2 text-sm sm:text-base"
             >
               {traders.map((t) => (
                 <option key={t} value={t}>
@@ -267,7 +277,7 @@ const WeeklyPnLChart = () => {
                 setSelectedMonth(e.target.value);
                 setSelectedWeek(null);
               }}
-              className="bg-gray-800 text-white rounded px-3 py-2"
+              className="bg-gray-800 text-white rounded px-3 py-2 text-sm sm:text-base"
             >
               <option value="September">September</option>
             </select>
@@ -297,20 +307,14 @@ const WeeklyPnLChart = () => {
             </div>
           )}
 
-          <div ref={chartRef} className="w-full h-96">
-            <ResponsiveContainer>
+          <div ref={chartRef} className="w-full h-72 sm:h-96 md:h-[500px]">
+            <ResponsiveContainer width="100%" height="100%">
               <BarChart data={displayedData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#555" />
                 <XAxis
                   dataKey={mode === "weekly" ? "displayDate" : "week"}
                   stroke="#eee"
-                  tickFormatter={(v, i) => {
-                    if (mode === "weekly") {
-                      const day = displayedData[i];
-                      return day?.displayDate || `Day ${i + 1}`;
-                    }
-                    return v;
-                  }}
+                  tick={{ fontSize: 10 }}
                 />
                 <YAxis stroke="#eee" tickFormatter={(v) => `${v}%`} />
                 <Tooltip contentStyle={{ backgroundColor: "#333" }} />
@@ -331,12 +335,12 @@ const WeeklyPnLChart = () => {
             </ResponsiveContainer>
           </div>
 
-          <div className="flex justify-center mt-8">
+          <div className="flex justify-center mt-6 sm:mt-8">
             <button
               onClick={handleDownloadPDF}
-              className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-100 font-bold py-3 px-6 rounded shadow-lg"
+              className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 text-gray-100 font-bold py-2.5 sm:py-3 px-4 sm:px-6 rounded shadow-lg text-sm sm:text-base"
             >
-              <BsDownload size={20} /> Download PDF
+              <BsDownload size={18} /> Download PDF
             </button>
           </div>
         </>

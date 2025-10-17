@@ -48,7 +48,7 @@ export default function AboutSection() {
           {/* 3️⃣ Paragraph */}
           <p className="text-lg sm:text-xl lg:text-2xl leading-relaxed text-gray-700 text-center md:text-left">
             At SIVVG, we empower traders with clear, reliable and data-driven intraday insights. Our journey began with a
-            simple vision — to turn every effort into a path to success. Challenges strengthened our commitment, and
+            simple vision — to turn every effort into a path to success. Challenges strengthened our commitment and
             today we stand as a trusted partner for traders at every level.
           </p>
         </motion.div>
