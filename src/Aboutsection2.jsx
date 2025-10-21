@@ -10,7 +10,7 @@ const AboutSection2 = () => {
         <div className="p-15"> {/*shadow-sm rounded-lg p-6 bg-[#E6E6FA]*/}
           <h2 className="text-3xl md:text-3xl font-bold text-[#4b4d9c] text-center  mb-10">
             Who we are
-          </h2>
+          </h2>git init
           <p className="text-gray-800 text-base leading-relaxed mb-4 text-center md:text-xl max-w-7xl mx-auto">
             At SIVVG Trading, we believe in making smart trading simple. We're a passionate team driven by the power of markets and data,
             working to deliver reliable, real-time trading solutions. Our goal is clear: to bridge the gap between opportunity and success.

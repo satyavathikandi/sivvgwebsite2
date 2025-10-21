@@ -7,31 +7,14 @@ import {
   TrendingUp,
 } from "lucide-react";
 import TipsButton from "./TipsButton";
-
-const investmentData = [
-  {
-    title: "Liquidity",
-    icon: <TrendingUp className="w-10 h-10" />,
-    description: "Grow your wealth over time by investing in the stock market.",
-  },
-  {
-    title: "Returns",
-    icon: <LineChart className="w-10 h-10" />,
-    description: "Diversify your investments through expert guidance.",
-  },
-  {
-    title: "Assurance",
-    icon: <PiggyBank className="w-10 h-10" />,
-    description: "Enjoy stable and secure returns with fixed interest rates.",
-  },
-];
+import Triangledig from "./Triangledig";
 
 const flipCards = [
   {
     title: "Risk Management",
     icon: <ShieldCheck className="w-12 h-12 text-green-700" />,
     description:
-      "The process of identifying, assessing, and minimizing potential losses in trading or investment.",
+      "The process of identifying, assessing and minimizing potential losses in trading or investment.",
     frontColor: "from-green-100 to-green-200 text-green-700",
     backColor: "from-green-400 to-green-600 text-green-800",
     borderColor: "from-green-400 via-green-500 to-green-600",
@@ -73,38 +56,26 @@ const Investment = () => {
     <div className="max-w-7xl mx-auto px-6 py-20 space-y-10">
       {/* Heading */}
       <div className="text-center">
-        <h2 className="text-2xl sm:text-4xl md:text-4xl font-bold text-blue-800 mb-4">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-blue-800 mb-16">
           <span className="bg-[#4b4d9c] bg-clip-text text-transparent">
             Your Investment Strategy
           </span>
         </h2>
-        <p className="text-xl text-gray-600">
+        <p className="text-xl text-gray-600 -mt-10">
           Choose the best options tailored to your financial goals.
         </p>
       </div>
 
-      {/* Investment Types */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-        {investmentData.map((item, idx) => (
-          <div
-            key={idx}
-            className="bg-white p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:scale-105 border border-gray-200 hover:border-indigo-500"
-          >
-            <div className="flex items-center justify-center w-16 h-16 bg-indigo-100 text-indigo-600 rounded-full mb-6">
-              {item.icon}
-            </div>
-            <h3 className="text-2xl font-semibold mb-4">{item.title}</h3>
-            <p className="text-lg text-gray-700">{item.description}</p>
-          </div>
-        ))}
-      </div>
+      <Triangledig />
 
       {/* Flip Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 -mt-20 gap-10 justify-items-center">
         {flipCards.map((card, idx) => (
           <div
             key={idx}
-            className={`flip-card h-60 cursor-pointer ${flipped[idx] ? "flipped" : ""}`}
+            className={`flip-card cursor-pointer w-82 h-62 ${
+              flipped[idx] ? "flipped" : ""
+            }`}
             onClick={() => toggleFlip(idx)}
           >
             <div className="flip-inner relative w-full h-full">
@@ -117,7 +88,19 @@ const Investment = () => {
                     className={`flex flex-col items-center justify-center w-full h-full rounded-2xl bg-gradient-to-br ${card.frontColor}`}
                   >
                     <div className="mb-3">{card.icon}</div>
-                    <h3 className="text-2xl font-semibold">{card.title}</h3>
+                    <h3
+                      className={`text-2xl font-semibold text-center ${
+                        card.title === "Risk Management"
+                          ? "text-green-700"
+                          : card.title === "Return Optimization"
+                          ? "text-yellow-700"
+                          : card.title === "Goal Based Planning"
+                          ? "text-blue-700"
+                          : "text-blue"
+                      }`}
+                    >
+                      {card.title}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -126,7 +109,7 @@ const Investment = () => {
               <div
                 className={`flip-back absolute inset-0 flex items-center justify-center rounded-2xl bg-gradient-to-br ${card.backColor} px-4 text-center backface-hidden`}
               >
-                <p className="text-xl font-medium text-white">{card.description}</p>
+                <p className="text-lg font-medium text-white">{card.description}</p>
               </div>
             </div>
           </div>
@@ -163,6 +146,18 @@ const Investment = () => {
         }
         .flip-back {
           transform: rotateY(180deg);
+        }
+
+        /* Landscape view fix only */
+        @media (orientation: landscape) and (max-width: 1024px) {
+          .flip-card {
+            width: 16rem !important;
+            height: 13rem !important;
+          }
+          .grid {
+            gap: 2rem !important;
+            justify-content: center !important;
+          }
         }
       `}</style>
     </div>
